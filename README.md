@@ -18,14 +18,23 @@ The end result is output to the file “TidyDataProject.txt”
 Hence the algorithm, as documented in run_analysis.R is as follows:
 
 get main datasets and combine into X_data
+
 get features and restrict to measures of 'mean' or 'std'
+
 Then tidy up the text values which will become column names in the final output
+
 get subject data 
+
 get activities and translate into meaningful names
+
 Add columns for subject and activity to X_data
+
 melt X_data and cast as data.table named melt_data
+
 Average melt_data over (subject,activity)
+
 Then make column names more informative and order data by subject,activity,feature
+
 Finally use write.table to output tidy_data as 'TidyDataProject.txt'
 
 
