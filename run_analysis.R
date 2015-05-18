@@ -40,20 +40,12 @@ activity <- activity_labels[activity[[1]],2]
 
 # Add columns for subject and activity to X_data
 #
-X_data <- cbind(subject,activity,X_data)
+X_data <- cbind(activity,subject,X_data)
 
-# melt X_data and cast as data.table named melt_data
-#
-library(data.table)
-library(reshape2)
-melt_data <- data.table((melt(X_data,id=c("subject","activity"))))
+wide_data <-  aggregate( . ~  activity + subject, data=X_data, FUN=mean)
 
-# Average melt_data over (subject,activity)
-# Then make column names more informative and order data by subject,activity,feature
-#
-tidy_data <- melt_data[, list(Average=mean(value)),by = list(subject,activity,feature=variable)]
-tidy_data <- tidy_data[order(subject,activity,feature),]
+# tidy_data <- tidy_data[order(subject,activity,feature),]
 
 # Finally use write.table to output tidy_data as 'TidyDataProject.txt'
 #
-write.table(tidy_data,"TidyDataProject.txt", row.names=FALSE)
+write.table(wide_data,"TidyDataProject.txt", row.names=FALSE, sep=",")
