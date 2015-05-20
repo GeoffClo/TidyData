@@ -40,12 +40,19 @@ activity <- activity_labels[activity[[1]],2]
 
 # Add columns for subject and activity to X_data
 #
-X_data <- cbind(activity,subject,X_data)
+X_data <- cbind(subject, activity, X_data)
 
-wide_data <-  aggregate( . ~  activity + subject, data=X_data, FUN=mean)
+# Compute averages for each feature to create a wide format data frame
+# Then gather into a long format before sorting both correctly.
 
-# tidy_data <- tidy_data[order(subject,activity,feature),]
+library(dplyr)
+library(tidyr)
 
-# Finally use write.table to output tidy_data as 'TidyDataProject.txt'
+wide_data <-  aggregate( . ~  subject + activity , data=X_data, FUN=mean)
+long_data <- gather(wide_data,"Feature", "Average", 3:81)
+wide_data <- arrange(wide_data,subject,activity)
+long_data <- arrange(long_data,subject,activity)
+
+# Finally use write.table to output long_data as 'TidyDataProject.txt'
 #
-write.table(wide_data,"TidyDataProject.txt", row.names=FALSE, sep=",")
+write.table(long_data,"TidyDataProject.txt", row.names=FALSE, sep=", ")
