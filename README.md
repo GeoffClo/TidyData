@@ -4,10 +4,10 @@
 
 ## The repo for this project contains these files:
 
-README.md 		(i.e. this file)  
-run_analysis.R		(R script that produces TidyDataProject.txt from input files)  
-Codebook.md		(description of variables, data and transforms used)  
-TidyDataProject.txt	(Tidy data output table)  
+README.md 		(i.e. this file)   
+run_analysis.R		(R script that produces TidyDataProject.txt from input files)   
+Codebook.md		(description of variables, data and transforms used)   
+TidyDataProject.txt	(Tidy data output table)   
 
 Each of the files in the original data set (except README.txt and the raw data files) is read into a data.frame of the same name.  
 The data is then combined into a data.frame named X_data.  
