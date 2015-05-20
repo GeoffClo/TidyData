@@ -1,6 +1,4 @@
 
-# packages required: dplyr and tidyr
-
 # Files
 
 	- 'features_info.txt': Shows information about the variables used on the feature vector.
@@ -13,7 +11,9 @@
 	- 'test/y_test.txt': Test labels.
 	- 'test/subject_test.txt': Test subjects.
 
-	- ’Tidydataproject.txt’: Final result
+	- ’Tidydataproject.txt’: Final result  
+	
+# packages required: dplyr and tidyr  
 
 # Data Structures
 
@@ -64,15 +64,15 @@ long_data : 'data.frame':  14220 obs. of  4 variables:
 
 # Algorithm
 
-get main datasets and combine into X_data
+get main datasets and combine into X_data.  
 
-get features and restrict to measures of 'mean' or 'std'
-Then tidy up the text values which will become column names in the final output
+get features and restrict to measures of 'mean' or 'std'  
+Then tidy up the text values which will become column names in the final output  
 
-get subject data 
-get activities and translate into meaningful names
-Add columns for subject and activity to X_data
+get subject data   
+get activities and translate into meaningful names  
+Add columns for subject and activity to X_data  
 
-Average feature measurements over (subject,activity)
-Then make column names more informative, create long format and order data by subject,activity,feature
-Finally use write.table to output long_data as 'TidyDataProject.txt'
+Average feature measurements over (subject,activity)  
+Then make column names more informative, create long format and order data by subject,activity,feature  
+Finally use write.table to output long_data as 'TidyDataProject.txt'  
